@@ -4,18 +4,18 @@
 <br>
 
 #
-# <br><span style="color:#D63484; text-align:center; display: block"> Setup </span> </br>
+# <br><span style="color:#D63484; text-align:center; display: block;"> Setup </span> </br>
 
 ### Step 1: Clone the project 
 ```bash
 git clone https://github.com/mindullness/s4prj-docker.git
 ```
-### Step 2: Change to the directory <span style="color:orange">s4prj-docker</span>
-```diff
+### Step 2: Change to the directory <span style="color:orange">`s4prj-docker`</span>
+```bash
 cd s4prj-docker
 ```
 ### Step 3: Run command, and wait few minutes
-```sh
+```css
 docker-compose up --build -d
 ```
 
@@ -29,9 +29,9 @@ docker-compose up --build -d
 ##
 Then here we go
 ##
-# <br><span style="color:#D63484; text-align:center; display: block"> Booking </span> </br>
+# <br><span style="color:#D63484; text-align:center; display: block;"> Booking </span> </br>
 
-#### 1. Access browser on <a href="http://localhost:3000/" target="blank">localhost:3000</a>, on the current day, only <span style="color:yellow">Hanoi (HAN)</span> and <span style="color:yellow">Ho Chi Minh (SGN)</span> destinations are available below:
+#### 1. Access browser on <a href="http://localhost:3000/" target="blank">localhost:3000</a>, on the current day, only <span style="color:yellow;">`Hanoi (HAN)`</span> and <span style="color:yellow;">`Ho Chi Minh (SGN)`</span> destinations are available:
 ![Access browser](./readme/image.png)
 
 #### 2. Select your flight
