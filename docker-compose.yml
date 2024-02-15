@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  # DBMS
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - '1433:1433'
+    env_file:
+      - ./env/mssql.env
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P MSSQL@123 -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      retries: 10
+      start_period: 10s
+      timeout: 3s
+    volumes:
+      - data:/var/opt/mssql
+    
+  mssql.configurator:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    volumes:
+      - ./db:/db
+    depends_on:
+      mssql:
+        condition: service_healthy
+    command: >
+      bash -c '
+      /opt/mssql-tools/bin/sqlcmd -S mssql -U sa -P MSSQL@123 -d master -i db/setup.sql;
+      echo "All done!";
+      '
+
+  # Backend
+  api:
+    build: ./api-v1
+    ports:
+    - '8080:8080'
+    depends_on:
+    - mssql
+
+  # Frontend
+  ui:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./ui/src:/app/src
+      - /app/node_modules
+    stdin_open: true # equals to "-it" flag
+    tty: true
+    depends_on:
+      - api
+
+  # Vols
+volumes:
+  data:
