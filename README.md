@@ -6,10 +6,10 @@
 docker-compose up --build -d
 ```
 
-![img_2.png](img_2.png)
+![img_2.png](./readme/img_2.png)
 
-![img_1.png](img_1.png)
-![img.png](img.png)
+![img_1.png](./readme/img_1.png)
+![img.png](./readme/img.png)
 
 ### Then here we go, on the current day, only 2 destinations are available below:
   - Hanoi (HAN)
