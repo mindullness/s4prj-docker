@@ -84,3 +84,16 @@ Then here we go
 #
 # <span style="color:#D63484; text-align:center; display: block"> ✈️ Enjoy Your Flight !!! </span> 
 ##
+
+#
+# </br><span style="color:#D63484;text-align:center; display: block">Clean Up</span> </br>
+
+#### 1. Run command below and wait `Docker` to stop, and remove all containers. 
+
+```css
+docker-compose down
+```
+![Alt text](./readme/dkr-compose-down.png)
+
+#### 2. Delete all the images
+![Alt text](./readme/delete-images.png)
